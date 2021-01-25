@@ -5,6 +5,7 @@ import io.micronaut.runtime.Micronaut;
 public class Application {
 
     public static void main(String[] args) {
-        Micronaut.run(Application.class, args);
+        var app = Micronaut.build(args).classes(Application.class);
+        app.start();
     }
 }

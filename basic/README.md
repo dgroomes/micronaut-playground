@@ -6,11 +6,11 @@ This sub-project is a "hello world" Micronaut application.
 
 ## Description
 
-I scaffolded this with the Micronaut [`mn` CLI](https://guides.micronaut.io/micronaut-cli/guide/index.html).
+I scaffolded this with the Micronaut [`mn` CLI](https://docs.micronaut.io/latest/guide/index.html#buildCLI).
 
 ## Instructions
 
-* Use Java 8
+* Use Java 11
 * Build and run the app:
   * `./gradlew run`
 * Build and run the tests:
@@ -30,4 +30,4 @@ General clean-ups, TODOs and things I wish to implement for this project:
 
 * Convert to Gradle Kotlin DSL
 * Remove web server and just make the app say "hello world"
-* Upgrade to Java 11
+* DONE Upgrade to Java 11
