@@ -3,12 +3,8 @@ plugins {
     id("io.micronaut.application") version "1.3.2"
 }
 
-version = "0.1"
-group = "basic"
-
 repositories {
     mavenCentral()
-    jcenter()
 }
 
 micronaut {
@@ -27,7 +23,6 @@ dependencies {
     runtimeOnly("ch.qos.logback:logback-classic")
 }
 
-
 application {
     mainClass.set("basic.Application")
 }
@@ -36,6 +31,3 @@ java {
     sourceCompatibility = JavaVersion.toVersion("11")
     targetCompatibility = JavaVersion.toVersion("11")
 }
-
-
-
