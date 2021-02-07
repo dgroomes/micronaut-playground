@@ -6,8 +6,6 @@
 
 ### `basic/`
 
-WORK IN PROGRESS
-
 This sub-project is a "hello world" Micronaut application.
 
 See the README in [basic/](basic/). 

@@ -1,9 +1,8 @@
 package basic;
 
-import io.micronaut.runtime.EmbeddedApplication;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import javax.inject.Inject;
 
@@ -11,11 +10,10 @@ import javax.inject.Inject;
 class BasicTest {
 
     @Inject
-    EmbeddedApplication<?> application;
+    String myMessage;
 
     @Test
     void testItWorks() {
-        Assertions.assertTrue(application.isRunning());
+        Assertions.assertEquals("Hello world!", myMessage);
     }
-
 }

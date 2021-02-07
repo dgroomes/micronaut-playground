@@ -3,4 +3,4 @@ defaultPackage: basic
 testFramework: junit
 sourceLanguage: java
 buildTool: gradle
-features: [app-name, gradle, http-client, java, java-application, junit, logback, netty-server, readme, shade, yaml]
+features: [app-name, gradle, java, java-application, junit, logback, readme, yaml]

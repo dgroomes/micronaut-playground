@@ -9,6 +9,9 @@
         </encoder>
     </appender>
 
+    <!--  Consider changing this to a lower level if you need help debugging the program and seeing what Micronaut is doing under the hood  -->
+    <logger name="io.micronaut.context.condition" level="info"/>
+
     <root level="info">
         <appender-ref ref="STDOUT" />
     </root>
