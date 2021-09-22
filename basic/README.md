@@ -8,7 +8,7 @@ I scaffolded this with the Micronaut [`mn` CLI](https://docs.micronaut.io/latest
 
 ## Instructions
 
-* Use Java 11
+* Use Java 17
 * Build and run the app:
   * `./gradlew run`
 * Build and run the tests:
