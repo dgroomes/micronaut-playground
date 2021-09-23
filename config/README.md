@@ -2,7 +2,7 @@
 
 NOT YET FULLY IMPLEMENTED
 
-This sub-project showcases configuration features of Micronaut like externalized configuration.
+This sub-project showcases configuration features of Micronaut like environments and externalized configuration.
 
 ## Instructions
 
@@ -18,6 +18,6 @@ This sub-project showcases configuration features of Micronaut like externalized
 
 General clean-ups, TODOs and things I wish to implement for this project:
 
-* Set a Java system property in the main method before starting the Micronaut app ("context" object). The Micronaut app
+* IN PROGRESS Set a Java system property in the main method before starting the Micronaut app ("context" object). The Micronaut app
   should reference an application property that gets its value from the system property.
 * Similar to the Java system property idea, do something with environment variables.

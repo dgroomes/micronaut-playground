@@ -19,6 +19,6 @@ See the README in [basic/](basic/).
 
 ### `config/`
 
-This sub-project showcases configuration features of Micronaut like externalized configuration.
+This sub-project showcases configuration features of Micronaut like environments and externalized configuration.
 
 See the README in [config/](config/). 

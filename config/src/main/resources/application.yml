@@ -1,3 +1,5 @@
 micronaut:
   application:
     name: config
+app:
+  message: Hello, world from the 'application.yml' file!
