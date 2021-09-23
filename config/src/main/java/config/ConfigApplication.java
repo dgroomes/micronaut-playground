@@ -1,4 +1,4 @@
-package basic;
+package config;
 
 import io.micronaut.context.ApplicationContext;
 import io.micronaut.context.annotation.Factory;
@@ -9,14 +9,12 @@ import org.slf4j.LoggerFactory;
 import javax.inject.Singleton;
 
 /**
- * A simple "hello world" Micronaut program in the CLI style (i.e. it is *not* running a server).
+ * A simple "hello world" Micronaut program
  */
-public class Application {
+public class ConfigApplication {
 
     public static void main(String[] args) {
-
-        // Is this the correct boilerplate for running a vanilla (i.e. non-Picocli) command line Micronaut program?
-        var builder = ApplicationContext.build(Application.class, Environment.CLI);
+        var builder = ApplicationContext.build(ConfigApplication.class, Environment.CLI);
         try (var ctx = builder.build()) {
 
             ctx.start();
