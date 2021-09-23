@@ -2,4 +2,6 @@ micronaut:
   application:
     name: config
 app:
-  message: Hello, world from the 'application.yml' file!
+  message-1: Hello from the 'application.yml' file!
+  message-2: Hello from the 'application.yml' file!
+  message-3: Hello from the 'application.yml' file!

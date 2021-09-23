@@ -16,12 +16,13 @@ public class ConfigApplication {
         var builder = ApplicationContext.build(ConfigApplication.class, Environment.CLI);
         try (var ctx = builder.build()) {
 
-            System.setProperty("app.message", "Hello from a system property!");
+            System.setProperty("app.message-2", "Hello from a system property!");
 
             ctx.start();
 
-            var message = ctx.getRequiredProperty("app.message", String.class);
-            log.info(message);
+            log.info(ctx.getRequiredProperty("app.message-1", String.class));
+            log.info(ctx.getRequiredProperty("app.message-2", String.class));
+            log.info(ctx.getRequiredProperty("app.message-3", String.class));
         }
     }
 }
