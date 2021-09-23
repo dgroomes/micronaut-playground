@@ -16,6 +16,8 @@ public class ConfigApplication {
         var builder = ApplicationContext.build(ConfigApplication.class, Environment.CLI);
         try (var ctx = builder.build()) {
 
+            System.setProperty("app.message", "Hello from a system property!");
+
             ctx.start();
 
             var message = ctx.getRequiredProperty("app.message", String.class);

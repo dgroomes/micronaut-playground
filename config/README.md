@@ -18,6 +18,6 @@ This sub-project showcases configuration features of Micronaut like environments
 
 General clean-ups, TODOs and things I wish to implement for this project:
 
-* IN PROGRESS Set a Java system property in the main method before starting the Micronaut app ("context" object). The Micronaut app
+* DONE Set a Java system property in the main method before starting the Micronaut app ("context" object). The Micronaut app
   should reference an application property that gets its value from the system property.
 * Similar to the Java system property idea, do something with environment variables.
