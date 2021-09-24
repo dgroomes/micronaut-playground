@@ -1,5 +1,5 @@
 plugins {
-    id("io.micronaut.application") version "1.3.2"
+    id("io.micronaut.application") version "2.0.3"
 }
 
 repositories {
