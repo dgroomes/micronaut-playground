@@ -1,6 +1,11 @@
 # micronaut-playground
 
-📚 Learning and experimenting with Micronaut framework <https://micronaut.io/>.
+📚 Learning and experimenting with the Micronaut framework <https://micronaut.io/>.
+
+> A modern, JVM-based, full-stack framework for building modular, easily testable microservice and serverless
+> applications
+>
+> -- <cite>https://micronaut.io</cite>
 
 ## Standalone sub-projects
 
@@ -13,12 +18,12 @@ The sub-projects include:
 
 ### `basic/`
 
-This sub-project is a "hello world" Micronaut application.
+This is a "Hello World" Micronaut application.
 
 See the README in [basic/](basic/).
 
 ### `config/`
 
-This sub-project showcases configuration features of Micronaut like environments and externalized configuration.
+This showcases configuration features of Micronaut like environments and externalized configuration.
 
 See the README in [config/](config/). 

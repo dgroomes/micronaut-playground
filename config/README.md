@@ -1,6 +1,6 @@
 # config
 
-This sub-project showcases configuration features of Micronaut like environments and externalized configuration.
+This showcases configuration features of Micronaut like environments and externalized configuration.
 
 ## Instructions
 

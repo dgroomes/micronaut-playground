@@ -1,14 +1,18 @@
 # basic
 
-This sub-project is a "hello world" Micronaut application.
+This is a "Hello World" Micronaut application.
 
 ## Description
 
-I scaffolded this with the Micronaut [`mn` CLI](https://docs.micronaut.io/latest/guide/index.html#buildCLI).
+An effective way to start learning a new framework is with a basic example. This is a so-called "Hello World" program
+implemented in Java and the [Micronaut](https://micronaut.io/). I scaffolded this with the Micronaut [`mn` CLI](https://docs.micronaut.io/latest/guide/index.html#buildCLI)
+and adapted it from there.
 
 ## Instructions
 
 * Use Java 11
+* Have Java 17 installed
+  * This version of Java will be used via Gradle's [Toolchains for JVM projects](https://docs.gradle.org/current/userguide/toolchains.html).  
 * Build and run the app:
   * `./gradlew run`
 * Build and run the tests:
