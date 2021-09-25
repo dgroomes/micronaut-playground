@@ -13,7 +13,7 @@ public class ConfigApplication {
     private static final Logger log = LoggerFactory.getLogger(ConfigApplication.class);
 
     public static void main(String[] args) {
-        var builder = ApplicationContext.build(ConfigApplication.class, Environment.CLI);
+        var builder = ApplicationContext.builder(ConfigApplication.class, Environment.CLI);
         try (var ctx = builder.build()) {
 
             System.setProperty("app.message-2", "Hello from a system property!");

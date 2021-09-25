@@ -1,5 +1,5 @@
 plugins {
-    id("io.micronaut.application") version "1.3.2"
+    id("io.micronaut.application") version "2.0.3"
 }
 
 repositories {
@@ -26,6 +26,7 @@ application {
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion("11")
-    targetCompatibility = JavaVersion.toVersion("11")
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
 }
