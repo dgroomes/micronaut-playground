@@ -1,3 +1,7 @@
 micronaut:
   application:
     name: sql
+datasources:
+  default:
+    url: jdbc:postgresql:postgres
+    username: postgres

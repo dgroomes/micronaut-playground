@@ -27,3 +27,9 @@ See the README in [basic/](basic/).
 This showcases configuration features of Micronaut like environments and externalized configuration.
 
 See the README in [config/](config/). 
+
+### `sql/`
+
+An example Micronaut application that accesses a SQL database using *Micronaut Data*.
+
+See the README in [sql/](sql/). 
