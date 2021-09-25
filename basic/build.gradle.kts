@@ -10,7 +10,7 @@ micronaut {
     testRuntime("junit5")
     processing {
         incremental(true)
-        annotations("basic.*")
+        annotations("dgroomes.basic.*")
     }
 }
 
@@ -22,7 +22,7 @@ dependencies {
 }
 
 application {
-    mainClass.set("basic.BasicApplication")
+    mainClass.set("dgroomes.basic.BasicApplication")
 }
 
 java {

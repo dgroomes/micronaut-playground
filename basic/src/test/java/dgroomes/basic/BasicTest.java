@@ -1,4 +1,4 @@
-package basic;
+package dgroomes.basic;
 
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 import jakarta.inject.Inject;

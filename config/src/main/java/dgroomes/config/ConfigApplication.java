@@ -1,4 +1,4 @@
-package config;
+package dgroomes.config;
 
 import io.micronaut.context.ApplicationContext;
 import io.micronaut.context.env.Environment;

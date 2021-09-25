@@ -10,7 +10,7 @@ micronaut {
     testRuntime("junit5")
     processing {
         incremental(true)
-        annotations("config.*")
+        annotations("dgroomes.config.*")
     }
 }
 
@@ -22,7 +22,7 @@ dependencies {
 }
 
 application {
-    mainClass.set("config.ConfigApplication")
+    mainClass.set("dgroomes.config.ConfigApplication")
 }
 
 java {

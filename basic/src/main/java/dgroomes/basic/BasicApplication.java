@@ -1,4 +1,4 @@
-package basic;
+package dgroomes.basic;
 
 import io.micronaut.context.ApplicationContext;
 import io.micronaut.context.annotation.Factory;
