@@ -25,7 +25,7 @@ public class SqlApplication {
 //            var dataSourceTopLevel = ctx.getBean(DataSource.class);
 //            var dataSource = DelegatingDataSource.unwrapDataSource(dataSourceTopLevel);
 
-            repo.save(new Observation(null, "expected observation", List.of("A", "B", "C", "123")));
+            repo.save(new Observation("expected observation", List.of("A", "B", "C", "123")));
 
             var observations = repo.findAll();
             log.info("\n\n");

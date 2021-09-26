@@ -44,10 +44,10 @@ and it disagrees with the casing Micronaut is using. See this [StackOverflow ans
 
 General clean-ups, TODOs and things I wish to implement for this project:
 
-* Remove the ID from the observations table. I often use tables without IDs. What changes do I have to make to the app
+* DONE Remove the ID from the observations table. I often use tables without IDs. What changes do I have to make to the app
   code to support a Micronaut Data integration to a table without IDs? I already know this will be a bit awkward because
   I tried it, found [this GitHub issue](https://github.com/micronaut-projects/micronaut-data/issues/1001) and then gave up.
 * Write a hand-written SQL query. I often write hand-written SQL queries to do aggregations and sometimes complex operations
   which are not feasible (or even remotely recommended to try) in the ORM layer (I know Micronaut Data says "it is not an ORM"
   but what is it if not an ORM?).
-* DONE Clean up the build.gradle.kts file. The explicity version numbers should not be needed.
+* DONE Clean up the build.gradle.kts file. The explicit version numbers should not be needed.
