@@ -9,7 +9,11 @@ Requires: Java 11, Java 17, Docker
 Follow these instructions to build and run the program:
 
 1. Start the Postgres database:
-    * `docker-compose up --renew-anon-volumes --detach`
+    * `docker-compose up --detach --force-recreate --renew-anon-volumes`
+    * Why is this `up` command so complicated? The combination of `--force-recreate` and `--renew-anon-volumes` has the 
+      effect of starting the Postgres database from a clean slate. This is convenient for quick development. You can use
+      a shortened version like `docker-compose up -d --force-recreate -V` but that's still long. Consider creating a shell
+      alias like `alias dcuf="docker-compose up --detach --force-recreate --renew-anon-volumes"`.
 1. Use Java 11
     * Make sure the version of `java` in your terminal is Java 11.
     * Also, make sure Java 17 is installed. This version of Java will be used via Gradle's [Toolchains for JVM projects](https://docs.gradle.org/current/userguide/toolchains.html).
