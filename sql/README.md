@@ -11,6 +11,7 @@ Follow these instructions to build and run the program:
 1. Start the Postgres database:
     * `docker-compose up --renew-anon-volumes --detach`
 1. Use Java 11
+    * Make sure the version of `java` in your terminal is Java 11.
     * Also, make sure Java 17 is installed. This version of Java will be used via Gradle's [Toolchains for JVM projects](https://docs.gradle.org/current/userguide/toolchains.html).
 1. Build and run the app:
     * `./gradlew run`
@@ -49,4 +50,4 @@ General clean-ups, TODOs and things I wish to implement for this project:
 * Write a hand-written SQL query. I often write hand-written SQL queries to do aggregations and sometimes complex operations
   which are not feasible (or even remotely recommended to try) in the ORM layer (I know Micronaut Data says "it is not an ORM"
   but what is it if not an ORM?).
-* Clean up the build.gradle.kts file. The explicity version numbers should not be needed.
+* DONE Clean up the build.gradle.kts file. The explicity version numbers should not be needed.

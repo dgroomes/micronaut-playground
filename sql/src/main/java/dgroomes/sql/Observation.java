@@ -1,16 +1,14 @@
 package dgroomes.sql;
 
+import io.micronaut.data.annotation.GeneratedValue;
+import io.micronaut.data.annotation.Id;
+import io.micronaut.data.annotation.MappedEntity;
 import io.micronaut.data.annotation.TypeDef;
 import io.micronaut.data.model.DataType;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import java.util.List;
 
-@Entity
-@Table(name = "observations")
+@MappedEntity("observations")
 public record Observation(
         @Id
         @GeneratedValue

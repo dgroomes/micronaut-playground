@@ -2,8 +2,6 @@ plugins {
     id("io.micronaut.application") version "2.0.3"
 }
 
-val postgresVersion = "42.2.20" // releases: https://jdbc.postgresql.org/ and https://search.maven.org/artifact/org.postgresql/postgresql
-
 repositories {
     mavenCentral()
 }
@@ -22,10 +20,9 @@ dependencies {
     runtimeOnly("ch.qos.logback:logback-classic")
 
     // Micronaut Data and Micronaut JDBC stuff
-    annotationProcessor("io.micronaut.data:micronaut-data-processor:3.0.1")
+    annotationProcessor("io.micronaut.data:micronaut-data-processor")
     implementation("io.micronaut.data:micronaut-data-jdbc")
-    implementation("io.micronaut.sql:micronaut-jdbc-hikari")
-    compileOnly("jakarta.persistence:jakarta.persistence-api:2.2.2")
+    runtimeOnly("io.micronaut.sql:micronaut-jdbc-hikari")
     implementation("org.postgresql:postgresql")
 }
 
