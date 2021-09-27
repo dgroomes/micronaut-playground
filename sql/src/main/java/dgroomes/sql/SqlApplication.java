@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 /**
  * A simple Micronaut program that connects to a SQL database. It makes use of the Micronaut Data project to do the heavy
@@ -20,18 +21,19 @@ public class SqlApplication {
 
     private static final Logger log = LoggerFactory.getLogger(SqlApplication.class);
 
+    // Terminal ANSI escape codes. See https://stackoverflow.com/a/28938235
+    private static final String UNDERLINED_BLACK = "\033[4;30m";
+    private static final String NO_COLOR = "\033[0m";
+
     public static void main(String[] args) throws Exception {
         var builder = ApplicationContext.builder(SqlApplication.class, Environment.CLI);
         try (var ctx = builder.build()) {
-            log.info("Starting the application...\n\n");
             ctx.start();
             var repo = ctx.getBean(ObservationsRepository.class);
-            log.info("\n\n");
 
             makeObservations(repo);
             listObservations(repo);
-            adhocQuery(ctx);
-            log.info("\n\n");
+            wordCount(ctx);
         }
     }
 
@@ -59,7 +61,7 @@ public class SqlApplication {
      * @param repo a Micronaut repository object over the "observations" table
      */
     private static void makeObservations(ObservationsRepository repo) {
-        log.info("Creating some observations and inserting them into the database...\n\n");
+        log.info("Creating some observations and inserting them into the 'observations' table...\n");
         var items = randomize(List.of("Java", "Micronaut", "SQL")).iterator();
         var descriptors = randomize(List.of("is the best!", "is amazing!", "rocks!")).iterator();
 
@@ -69,7 +71,6 @@ public class SqlApplication {
                 String.format("%s %s", items.next(), descriptors.next()));
 
         repo.save(new Observation("random software observations", notes));
-        log.info("\n\n");
     }
 
     /**
@@ -78,14 +79,15 @@ public class SqlApplication {
      * @param repo a Micronaut repository object over the "observations" table
      */
     private static void listObservations(ObservationsRepository repo) {
-        log.info("Listing all of the observations in the 'observations' table...\n\n");
+        log.info("Listing all of the observations in the 'observations' table...");
 
-        var observations = repo.findAll();
-        log.info("Found the following observations:\n");
-        for (Observation observation : observations) {
-            log.info(observation.toString());
-        }
-        log.info("\n\n");
+        var observationsTable = String.format("%s%-50s%s%s%n", UNDERLINED_BLACK, "Description", "Notes", NO_COLOR);
+        observationsTable += repo.findAll()
+                .stream()
+                .map(observation -> String.format("%-50s%s", observation.description(), observation.notes()))
+                .collect(Collectors.joining("\n"));
+
+        log.info("\n{}\n\n", observationsTable);
     }
 
     /**
@@ -96,8 +98,8 @@ public class SqlApplication {
      * Postgres database into the Java process. For large data, that's too cost prohibitive. So this is an
      * example that shows how to execute hand-written SQL queries in a Micronaut/Postgres context.
      */
-    private static void adhocQuery(ApplicationContext ctx) throws SQLException {
-        log.info("Computing a word count...\n\n");
+    private static void wordCount(ApplicationContext ctx) throws SQLException {
+        log.info("Computing a word count...");
         // This query flattens the "notes" array value across all rows and then splits each note into individual
         // words. The "unnest" function flattens the arrays and then the "regexp_split_to_table" function splits the note
         // strings into individual words. The result of this operation goes into a Common Table Expression (CTE) named
@@ -121,7 +123,7 @@ public class SqlApplication {
 
         // Collect the results into a string that's formatted like a table. There are two columns: "Word" and "Count"
         StringBuilder builder = new StringBuilder();
-        builder.append(String.format("%-12s%sn%n", "Word", "Count")); // Header row
+        builder.append(String.format("%s%-12s%s%s%n", UNDERLINED_BLACK, "Word", "Count", NO_COLOR)); // Header row
         while (resultSet.next()) {
             var word = resultSet.getObject(1);
             var count = resultSet.getObject(2);
@@ -130,6 +132,6 @@ public class SqlApplication {
         }
         var wordCountTable = builder.toString();
 
-        log.info("Computed the following 'word count' across all words in the observation notes:\n\n{}", wordCountTable);
+        log.info("\n{}", wordCountTable);
     }
 }

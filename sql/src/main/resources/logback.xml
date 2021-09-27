@@ -10,10 +10,12 @@
     </appender>
 
     <!--  Consider changing this to a lower level if you need help debugging the program and seeing what Micronaut is doing under the hood  -->
-    <logger name="io.micronaut.context.condition" level="info"/>
+    <logger name="io.micronaut.context" level="error"/>
 
-    <!-- Log the SQL queries that get sent to the database   -->
-    <logger name="io.micronaut.data.query" level="debug"/>
+    <!-- Set this logger to "debug" to log SQL queries that get sent to the database   -->
+    <logger name="io.micronaut.data.query" level="info"/>
+
+    <logger name="com.zaxxer.hikari.HikariDataSource" level="error"/>
 
     <root level="info">
         <appender-ref ref="STDOUT" />

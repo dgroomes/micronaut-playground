@@ -16,6 +16,38 @@ Follow these instructions to build and run the program.
 1. Build and run the app:
     * `./gradlew run`
     * Observe program output. It reads from and writes to the Postgres database!
+    * The output should look something like this:
+      ```
+      21:46:26.285 [main] INFO  dgroomes.sql.SqlApplication - Creating some observations and inserting them into the 'observations' table...
+      
+      21:46:26.436 [main] INFO  dgroomes.sql.SqlApplication - Listing all of the observations in the 'observations' table...
+      21:46:26.452 [main] INFO  dgroomes.sql.SqlApplication -
+      Description                                       Notes
+      groundbreaking observation                        [{"the sky seems blue"}]
+      underwhelming observation                         [{"the sky is there","cats are not dogs"}]
+      random software observations                      [{"Micronaut is the best!","Java is amazing!","SQL rocks!"}]
+      
+      
+      21:46:26.453 [main] INFO  dgroomes.sql.SqlApplication - Computing a word count...
+      21:46:26.481 [main] INFO  dgroomes.sql.SqlApplication -
+      Word        Count
+      is          3
+      the         3
+      sky         2
+      there       1
+      best!       1
+      amazing!    1
+      rocks!      1
+      blue        1
+      are         1
+      Micronaut   1
+      Java        1
+      cats        1
+      not         1
+      seems       1
+      dogs        1
+      SQL         1
+      ```
 1. Stop the database:
     * `docker-compose down`
 
@@ -51,4 +83,7 @@ General clean-ups, TODOs and things I wish to implement for this project:
   which are not feasible (or even remotely recommended to try) in the ORM layer (I know Micronaut Data says "it is not an ORM"
   but what is it if not an ORM?).
 * DONE Clean up the build.gradle.kts file. The explicit version numbers should not be needed.
-* The logging output is a bit of a mess. This doesn't make for an obvious demo. Demos should speak for themselves.
+* DONE The logging output is a bit of a mess. This doesn't make for an obvious demo. Demos should speak for themselves.
+* Defect. The "notes" array type column in the "observations" table is not deserializing correctly. The entire array value is
+  deserialized to just one Java String object. For example, the notes containing "the sky is there" and "cats are not dogs"
+  is deserializing (or rather, failing to deserialize) to `{"the sky is there","cats are not dogs"}`.
