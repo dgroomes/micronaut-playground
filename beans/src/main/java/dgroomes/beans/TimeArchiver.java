@@ -27,11 +27,8 @@ public class TimeArchiver {
 
     @PostConstruct
     public void init() {
-        if (archivedTime != null) {
-            log.info("Old time: {}", getArchivedTime());
-        }
         archivedTime = Instant.now();
-        log.info("New time: {}", getArchivedTime());
+        log.info("New archived time: {}", getArchivedTime());
         log.info("Self: {}", this.hashCode());
     }
 

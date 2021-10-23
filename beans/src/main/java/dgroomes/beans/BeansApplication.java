@@ -24,8 +24,7 @@ public class BeansApplication {
 
     public void run() throws InterruptedException {
         for (int i = 0; i < 3; i++) {
-            log.info("Self: {}", this.hashCode());
-            log.info("Found current time: {}", timeArchiver.getArchivedTime());
+            log.info("Found archived time: {}", timeArchiver.getArchivedTime());
             Thread.sleep(1_000);
         }
     }
