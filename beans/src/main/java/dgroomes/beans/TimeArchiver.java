@@ -1,6 +1,5 @@
 package dgroomes.beans;
 
-import io.micronaut.runtime.context.scope.Refreshable;
 import jakarta.annotation.PostConstruct;
 import jakarta.inject.Singleton;
 import org.slf4j.Logger;
@@ -15,9 +14,7 @@ import java.time.temporal.ChronoField;
 
 import static java.time.temporal.ChronoField.*;
 
-@Refreshable
 @Singleton
-//@Prototype
 public class TimeArchiver {
 
     private static final Logger log = LoggerFactory.getLogger(TimeArchiver.class);
