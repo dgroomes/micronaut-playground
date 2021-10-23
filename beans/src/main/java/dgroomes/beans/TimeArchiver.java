@@ -29,5 +29,4 @@ public class TimeArchiver {
             .appendValue(SECOND_OF_MINUTE, 2)
             .appendText(ChronoField.AMPM_OF_DAY)
             .toFormatter();
-
 }

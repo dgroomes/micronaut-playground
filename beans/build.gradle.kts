@@ -13,6 +13,7 @@ val logbackVersion = "1.2.6" // Logback releases: http://logback.qos.ch/news.htm
 dependencies {
     annotationProcessor("io.micronaut:micronaut-inject-java:$micronautVersion")
     implementation("io.micronaut:micronaut-inject:$micronautVersion")
+    implementation("io.micronaut:micronaut-runtime:$micronautVersion")
     runtimeOnly("ch.qos.logback:logback-classic:$logbackVersion")
 }
 
