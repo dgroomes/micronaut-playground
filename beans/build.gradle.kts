@@ -1,23 +1,19 @@
 plugins {
-    id("io.micronaut.application") version "2.0.3"
+    java
+    application
 }
 
 repositories {
     mavenCentral()
 }
 
-micronaut {
-    processing {
-        incremental(true)
-        annotations("dgroomes.beans.*")
-    }
-}
+val micronautVersion = "3.1.1" // Micronaut releases: https://github.com/micronaut-projects/micronaut-core/releases
+val logbackVersion = "1.2.6" // Logback releases: http://logback.qos.ch/news.html
 
 dependencies {
-    implementation("io.micronaut:micronaut-validation")
-    implementation("io.micronaut:micronaut-runtime")
-    implementation("io.micronaut:micronaut-http-client")
-    runtimeOnly("ch.qos.logback:logback-classic")
+    annotationProcessor("io.micronaut:micronaut-inject-java:$micronautVersion")
+    implementation("io.micronaut:micronaut-runtime:$micronautVersion")
+    runtimeOnly("ch.qos.logback:logback-classic:$logbackVersion")
 }
 
 application {

@@ -15,7 +15,7 @@ This project illustrates Micronaut bean concepts like lifecycle scopes and the `
 General clean-ups, TODOs and things I wish to implement for this project:
 
 * Use `BeanContext`
-* Can I strip out most of the Micronaut framework-iness (micronaut-cli.yml, Gradle plugin) and just use Micronaut as a
+* DONE Can I strip out most of the Micronaut framework-iness (micronaut-cli.yml, Gradle plugin) and just use Micronaut as a
   library (including its required annotation processing)? With this "beans" sub-project I want to focus on just that. All
   other cruft detracts from the illustration.
 * Compare and constrast beans with different life-cycle scopes: Singleton (easy!), Prototype, and the 
