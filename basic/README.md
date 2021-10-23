@@ -23,7 +23,7 @@ and adapted it from there.
 
 ## Referenced materials
 
-* [Micronaut docs: *User Guide*](https://docs.micronaut.io/2.3.0/guide/index.html)
+* [Micronaut docs: *User Guide*](https://docs.micronaut.io/latest/guide/)
 * [Micronaut docs: *API Reference*](https://docs.micronaut.io/2.3.0/api/index.html)
 * [Micronaut docs: *Configuration Reference*](https://docs.micronaut.io/2.3.0/guide/configurationreference.html)
 * [Micronaut docs: *Micronaut Guides*](https://guides.micronaut.io/index.html)
