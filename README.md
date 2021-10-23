@@ -22,6 +22,12 @@ This is a "Hello World" Micronaut application.
 
 See the README in [basic/](basic/).
 
+### `beans/`
+
+This project illustrates Micronaut bean concepts like lifecycle scopes and the `BeanContext`.
+
+See the README in [beans/](beans/).
+
 ### `config/`
 
 This showcases configuration features of Micronaut like environments and externalized configuration.

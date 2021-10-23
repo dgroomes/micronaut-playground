@@ -1,15 +1,23 @@
 package dgroomes.beans;
 
 import io.micronaut.context.BeanContext;
+import io.micronaut.context.annotation.Bean;
+import io.micronaut.context.annotation.Factory;
+import io.micronaut.context.annotation.Prototype;
+import jakarta.inject.Named;
+import jakarta.inject.Provider;
 import jakarta.inject.Singleton;
 
 @Singleton
 public class BeansApplication {
 
-    private final TimeArchiver timeArchiver;
+    private final Provider<TimeArchiver> timeArchiverSingleton;
+    private final Provider<TimeArchiver> timeArchiverPrototype;
 
-    public BeansApplication(TimeArchiver timeArchiver) {
-        this.timeArchiver = timeArchiver;
+    public BeansApplication(@Named("timeArchiverSingleton") Provider<TimeArchiver> timeArchiverSingletonProvider,
+                            @Named("timeArchiverPrototype") Provider<TimeArchiver> timeArchiverPrototypeProvider) {
+        this.timeArchiverSingleton = timeArchiverSingletonProvider;
+        this.timeArchiverPrototype = timeArchiverPrototypeProvider;
     }
 
     public static void main(String[] args) throws InterruptedException {
@@ -19,9 +27,33 @@ public class BeansApplication {
     }
 
     public void run() throws InterruptedException {
+        lookAtTheTime(timeArchiverSingleton);
+        lookAtTheTime(timeArchiverPrototype);
+    }
+
+    private void lookAtTheTime(Provider<TimeArchiver> provider) throws InterruptedException {
         for (int i = 0; i < 3; i++) {
-            System.out.printf("[BeansApplication#run] Found archived time: %s%n", timeArchiver.getArchivedTime());
+            var archivedTime = provider.get().archivedTime;
+            System.out.printf("[BeansApplication#run] Found archived time: %s%n", archivedTime);
             Thread.sleep(1_000);
+        }
+        System.out.printf("%n%n");
+    }
+
+    @Factory
+    static class BeansFactory {
+
+        @Bean
+        @Singleton
+        @Named("timeArchiverSingleton")
+        public TimeArchiver timeArchiverSingleton() {
+            return new TimeArchiver();
+        }
+
+        @Named("timeArchiverPrototype")
+        @Prototype
+        public TimeArchiver timeArchiverPrototype() {
+            return new TimeArchiver();
         }
     }
 }

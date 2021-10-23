@@ -1,8 +1,5 @@
 package dgroomes.beans;
 
-import jakarta.annotation.PostConstruct;
-import jakarta.inject.Singleton;
-
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -12,19 +9,15 @@ import java.time.temporal.ChronoField;
 
 import static java.time.temporal.ChronoField.*;
 
-@Singleton
 public class TimeArchiver {
 
-    private Instant archivedTime;
+    public final String archivedTime;
 
     public TimeArchiver() {
-        System.out.printf("[TimeArchiver#constructor] Self: %s%n", this.hashCode());
-    }
-
-    @PostConstruct
-    public void init() {
-        archivedTime = Instant.now();
-        System.out.printf("[TimeArchiver#init] New archived time: %s. Self: %s%n", getArchivedTime(), this.hashCode());
+        System.out.println("[TimeArchiver#constructor] New instance!");
+        var now = Instant.now();
+        var localDateTime = LocalDateTime.ofInstant(now, ZoneId.systemDefault());
+        archivedTime = HOUR_MINUTE_FORMATTER.format(localDateTime);
     }
 
     // This formats a time to just the hour and minute. For example, "09:59PM".
@@ -37,11 +30,4 @@ public class TimeArchiver {
             .appendText(ChronoField.AMPM_OF_DAY)
             .toFormatter();
 
-    /**
-     * Get the archived time. This is completely pointless.
-     */
-    public String getArchivedTime() {
-        var localDateTime = LocalDateTime.ofInstant(archivedTime, ZoneId.systemDefault());
-        return HOUR_MINUTE_FORMATTER.format(localDateTime);
-    }
 }
