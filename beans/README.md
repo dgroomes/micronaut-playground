@@ -2,27 +2,25 @@
 
 This project illustrates Micronaut bean concepts like lifecycle scopes and the `BeanContext`.
 
-* Use Java 11
-* Have Java 17 installed
-  * This version of Java will be used via Gradle's [Toolchains for JVM projects](https://docs.gradle.org/current/userguide/toolchains.html).  
-* Build and run the app:
-  * `./gradlew run`
-  * Notice how the program behavior is different for `Singleton`-scoped bean than for the `Prototype`-scoped bean. The
-    output will be something like this:
-    ```
-    [TimeArchiver#constructor] New instance!
-    [BeansApplication#run] Found archived time: 01:52:01PM
-    [BeansApplication#run] Found archived time: 01:52:01PM
-    [BeansApplication#run] Found archived time: 01:52:01PM
-    
-    
-    [TimeArchiver#constructor] New instance!
-    [BeansApplication#run] Found archived time: 01:52:04PM
-    [TimeArchiver#constructor] New instance!
-    [BeansApplication#run] Found archived time: 01:52:05PM
-    [TimeArchiver#constructor] New instance!
-    [BeansApplication#run] Found archived time: 01:52:06PM
-    ```
+1. Use Java 17
+2. Build and run the app:
+   * `./gradlew run`
+   * Notice how the program behavior is different for `Singleton`-scoped bean than for the `Prototype`-scoped bean. The
+     output will be something like this:
+     ```
+     [TimeArchiver#constructor] New instance!
+     [BeansApplication#run] Found archived time: 01:52:01PM
+     [BeansApplication#run] Found archived time: 01:52:01PM
+     [BeansApplication#run] Found archived time: 01:52:01PM
+     
+     
+     [TimeArchiver#constructor] New instance!
+     [BeansApplication#run] Found archived time: 01:52:04PM
+     [TimeArchiver#constructor] New instance!
+     [BeansApplication#run] Found archived time: 01:52:05PM
+     [TimeArchiver#constructor] New instance!
+     [BeansApplication#run] Found archived time: 01:52:06PM
+     ```
   
 ## Wish List
 

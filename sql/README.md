@@ -4,7 +4,7 @@ An example Micronaut application that accesses a SQL database using *Micronaut D
 
 ## Instructions
 
-Requires: Java 11, Java 17, Docker
+Requires: Java 17, Docker
 
 Follow these instructions to build and run the program:
 
@@ -14,16 +14,14 @@ Follow these instructions to build and run the program:
       effect of starting the Postgres database from a clean slate. This is convenient for quick development. You can use
       a shortened version like `docker-compose up -d --force-recreate -V` but that's still long. Consider creating a shell
       alias like `alias dcuf="docker-compose up --detach --force-recreate --renew-anon-volumes"`.
-1. Use Java 11
-    * Make sure the version of `java` in your terminal is Java 11.
-    * Also, make sure Java 17 is installed. This version of Java will be used via Gradle's [Toolchains for JVM projects](https://docs.gradle.org/current/userguide/toolchains.html).
+1. Use Java 17
 1. Build and run the app:
     * `./gradlew run`
     * Observe program output. It reads from and writes to the Postgres database!
 1. Stop the database:
     * `docker-compose down`
 
-## Referenced materials
+## Reference
 
 * [Micronaut Data](https://micronaut-projects.github.io/micronaut-data/latest/guide/)
   > In addition to JPA, Micronaut Data supports the generation of repositories that use native SQL. The implementation is general enough that any transport can use be used for executing the SQL queries, as of this writing JDBC is the only supported implementation for executing SQL queries, however this may change in the future.
@@ -39,8 +37,8 @@ This was hard. The Micronaut docs have a good volume of content and really nice 
 going so far as to offer alternative code snippets for Gradle vs. Maven, and Java vs. Groovy vs. Kotlin. That is much
 appreciated. However, after following the directions precisely, copying code snippets judiciously, reviewing the docs
 multiple times, and experimenting with changes here and there, I still could not get up and running with a non-JPA
-Micronaut Data "Hello world" example. After some deeper diving, (Micronaut DEBUG logging, breakpoings in the Micronaut code,
-executing handwritten SQL statements from the `main` method) I figured out that H2 is changing the case of the table
+Micronaut Data "Hello world" example. After some deeper diving, (Micronaut DEBUG logging, breakpoints in the Micronaut code,
+executing handwritten SQL statements from the `main` method) I figured out that H2 is changing the case of the table name
 and it disagrees with the casing Micronaut is using. See this [StackOverflow answer](https://stackoverflow.com/a/17925668).
 
 

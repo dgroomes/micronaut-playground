@@ -39,3 +39,10 @@ See the README in [config/](config/).
 An example Micronaut application that accesses a SQL database using *Micronaut Data*.
 
 See the README in [sql/](sql/). 
+
+## Wish List
+
+General clean-ups, TODOs and things I wish to implement for this project:
+
+* Add a server example. I want to showcase a "hello world" endpoint and do gzip compression.
+* Track the issue about the Gradle "run" task being cached starting in version 3.0.0 of the Micronaut Gradle plugin.

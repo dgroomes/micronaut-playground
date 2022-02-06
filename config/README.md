@@ -4,9 +4,7 @@ This showcases configuration features of Micronaut like environments and externa
 
 ## Instructions
 
-* Use Java 11
-* Have Java 17 installed
-    * This version of Java will be used via Gradle's [Toolchains for JVM projects](https://docs.gradle.org/current/userguide/toolchains.html).
+* Use Java 17
 * Build and run the app:
     * `./gradlew run`
     * Notice the output. It prints application properties retrieved from various places. Study the code and the

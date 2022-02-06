@@ -10,18 +10,16 @@ and adapted it from there.
 
 ## Instructions
 
-* Use Java 11
-* Have Java 17 installed
-  * This version of Java will be used via Gradle's [Toolchains for JVM projects](https://docs.gradle.org/current/userguide/toolchains.html).  
-* Build and run the app:
-  * `./gradlew run`
-* Build and run the tests:
-  * `./gradlew test`
-* Build the app distribution and then run it:
-  * `./gradlew installDist`
-  * `./build/install/basic/bin/basic` 
+1. Use Java 17
+2. Build and run the app:
+   * `./gradlew run`
+3. Build and run the tests:
+   * `./gradlew test`
+4. Build the app distribution and then run it:
+   * `./gradlew installDist`
+   * `./build/install/basic/bin/basic` 
 
-## Referenced materials
+## Reference
 
 * [Micronaut docs: *User Guide*](https://docs.micronaut.io/latest/guide/)
 * [Micronaut docs: *API Reference*](https://docs.micronaut.io/2.3.0/api/index.html)
