@@ -18,9 +18,15 @@ The sub-projects include:
 
 ### `basic/`
 
-This is a "Hello World" Micronaut application.
+This is a "Hello World" Micronaut CLI program.
 
 See the README in [basic/](basic/).
+
+### `server/`
+
+This is a "Hello World" Micronaut HTTP web server application.
+
+See the README in [server/](server/).
 
 ### `beans/`
 
@@ -44,5 +50,6 @@ See the README in [sql/](sql/).
 
 General clean-ups, TODOs and things I wish to implement for this project:
 
-* Add a server example. I want to showcase a "hello world" endpoint and do gzip compression.
+* IN PROGRESS Add a server example. I want to showcase a "hello world" endpoint and do gzip compression.
 * Track the issue about the Gradle "run" task being cached starting in version 3.0.0 of the Micronaut Gradle plugin.
+  * Update: see <https://github.com/micronaut-projects/micronaut-gradle-plugin/issues/385>

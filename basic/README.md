@@ -1,6 +1,6 @@
 # basic
 
-This is a "Hello World" Micronaut application.
+This is a "Hello World" Micronaut CLI program.
 
 ## Description
 
