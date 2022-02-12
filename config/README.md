@@ -4,6 +4,8 @@ This showcases configuration features of Micronaut like environments and externa
 
 ## Instructions
 
+Follow these instructions to build and run the program.
+
 * Use Java 17
 * Build and run the app:
     * `./gradlew run`

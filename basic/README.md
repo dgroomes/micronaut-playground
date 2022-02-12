@@ -10,6 +10,8 @@ and adapted it from there.
 
 ## Instructions
 
+Follow these instructions to build and run the program.
+
 1. Use Java 17
 2. Build and run the app:
    * `./gradlew run`

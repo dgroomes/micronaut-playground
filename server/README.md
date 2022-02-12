@@ -4,6 +4,8 @@ This is a "Hello World" Micronaut HTTP web server application but with some comp
 
 ## Instructions
 
+Follow these instructions to build and run the program.
+
 1. Use Java 17
 2. Build and start the web app:
    * `./gradlew run`
@@ -65,7 +67,7 @@ This is a "Hello World" Micronaut HTTP web server application but with some comp
    * The reason is the configuration of the "content size threshold" given to `io.netty.handler.codec.http.HttpContentCompressor`.
      We don't want to bother compressing small payloads. The compute overhead is not worth it.
 
-Tip: to build and run the program in debug mode in suspending mode, use this:
+Tip: to build and run the program in debug suspending mode, use this:
 
 ```shell
 alias go="./gradlew :installDist && SERVER_OPTS='-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:5005' build/install/server/bin/server"`

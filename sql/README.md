@@ -4,9 +4,7 @@ An example Micronaut application that accesses a SQL database using *Micronaut D
 
 ## Instructions
 
-Requires: Java 17, Docker
-
-Follow these instructions to build and run the program:
+Follow these instructions to build and run the program.
 
 1. Start the Postgres database:
     * `docker-compose up --detach --force-recreate --renew-anon-volumes`
