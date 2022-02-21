@@ -24,7 +24,7 @@ See the README in [basic/](basic/).
 
 ### `server/`
 
-This is a "Hello World" Micronaut HTTP web server application but with some compression flair.
+A "Hello World" Micronaut HTTP web server application that also showcases compression (gzip) and content-negotiation.
 
 See the README in [server/](server/).
 

@@ -26,6 +26,7 @@ dependencies {
     implementation("io.micronaut:micronaut-runtime")
     implementation("io.micronaut:micronaut-http-client")
     implementation("io.micronaut:micronaut-http-server-netty")
+    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-csv")
     runtimeOnly("ch.qos.logback:logback-classic")
 
     // Netty does detection at bootstrap-time for the presence of these Zstandard and Brotli Java libraries. If they are
