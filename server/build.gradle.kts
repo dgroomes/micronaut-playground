@@ -13,7 +13,7 @@ micronaut {
     testRuntime("junit5")
     processing {
         incremental(true)
-        annotations("dgroomes.basic.*")
+        annotations("dgroomes.server.*")
     }
 }
 

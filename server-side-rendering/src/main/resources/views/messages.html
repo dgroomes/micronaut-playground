@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Messages</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        tr {
+            border: solid thin;
+        }
+    </style>
+</head>
+<body>
+<h1>Messages</h1>
+<p>The Micronaut server wrote some messages for you:</p>
+<table class="styled-table">
+    <thead>
+    <tr>
+        <th>No.</th>
+        <th>Message</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="msg: ${messages}">
+        <td th:text="${msg.number}"></td>
+        <td th:text="${msg.text}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

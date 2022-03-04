@@ -28,6 +28,12 @@ A "Hello World" Micronaut HTTP web server application that also showcases compre
 
 See the README in [server/](server/).
 
+### `server-side-rendering/`
+
+A Micronaut application that renders HTML on the server-side using the Micronaut "Views" sub-project and Thymeleaf.
+
+See the README in [server-side-rendering/](server-side-rendering/).
+
 ### `beans/`
 
 This project illustrates Micronaut bean concepts like lifecycle scopes and the `BeanContext`.
