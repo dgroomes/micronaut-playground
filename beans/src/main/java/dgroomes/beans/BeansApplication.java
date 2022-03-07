@@ -43,6 +43,8 @@ public class BeansApplication {
         lookAtTheTime(timeArchiverPrototype, "PROTOTYPE");
         lookAtTheTime(timeArchiverRefreshable, "REFRESHABLE");
 
+        // Try "refreshing" the bean. The effect I'm looking for is that the "archived time" that's printed is now a later
+        // time. Unfortunately, this seems to have no effect.
         ctx.publishEvent(RefreshEvent.class);
         ctx.refreshBean(BeanIdentifier.of("timeArchiverRefreshable"));
         lookAtTheTime(timeArchiverRefreshable, "REFRESHABLE");
@@ -51,8 +53,10 @@ public class BeansApplication {
     private void lookAtTheTime(Provider<TimeArchiver> provider, String beanDescriptor) throws InterruptedException {
         System.out.printf("Looking up the time on a '%s' bean%n", beanDescriptor);
         for (int i = 0; i < 3; i++) {
-            var archivedTime = provider.get().archivedTime;
-            System.out.printf("[BeansApplication#run] Found archived time: %s%n", archivedTime);
+            System.out.println("[BeansApplication#run] pre-get");
+            var timeArchiver = provider.get();
+            System.out.println("[BeansApplication#run] post-get");
+            System.out.printf("[BeansApplication#run] [timeArchiver identity=%s type=%s] Found time archiver: %s%n", System.identityHashCode(timeArchiver), timeArchiver.getClass(), timeArchiver);
             Thread.sleep(1_000);
         }
         System.out.printf("%n%n");
@@ -65,20 +69,32 @@ public class BeansApplication {
         @Singleton
         @Named("timeArchiverSingleton")
         public TimeArchiver timeArchiverSingleton() {
-            return new TimeArchiver();
+            System.out.println("[BeansFactory#timeArchiverSingleton] pre-construct");
+            var timeArchiver = new TimeArchiver();
+            System.out.printf("[BeansFactory#timeArchiverSingleton] [timeArchiver identity=%s type=%s]%n", System.identityHashCode(timeArchiver), timeArchiver.getClass());
+            System.out.println("[BeansFactory#timeArchiverSingleton] post-construct");
+            return timeArchiver;
         }
 
         @Named("timeArchiverPrototype")
         @Prototype
         public TimeArchiver timeArchiverPrototype() {
-            return new TimeArchiver();
+            System.out.println("[BeansFactory#timeArchiverSingleton] pre-construct");
+            var timeArchiver = new TimeArchiver();
+            System.out.printf("[BeansFactory#timeArchiverPrototype] [timeArchiver identity=%s type=%s]%n", System.identityHashCode(timeArchiver), timeArchiver.getClass());
+            System.out.println("[BeansFactory#timeArchiverSingleton] post-construct");
+            return timeArchiver;
         }
 
         // This bean DOES NOT actually refresh. I don't known why this doesn't work.
         @Named("timeArchiverRefreshable")
         @Refreshable
         public TimeArchiver timeArchiverRefreshable() {
-            return new TimeArchiver();
+            System.out.println("[BeansFactory#timeArchiverSingleton] pre-construct");
+            var timeArchiver = new TimeArchiver();
+            System.out.printf("[BeansFactory#timeArchiverRefreshable] [timeArchiver identity=%s type=%s]%n", System.identityHashCode(timeArchiver), timeArchiver.getClass());
+            System.out.println("[BeansFactory#timeArchiverSingleton] post-construct");
+            return timeArchiver;
         }
     }
 }

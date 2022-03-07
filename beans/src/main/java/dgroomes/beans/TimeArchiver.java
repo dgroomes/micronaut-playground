@@ -9,15 +9,25 @@ import java.time.temporal.ChronoField;
 
 import static java.time.temporal.ChronoField.*;
 
+/**
+ * Instances of this class hold on to an "archived time" object. This class is immutable.
+ * <p>
+ * This class helps illustrate Micronaut's bean lifecycles.
+ */
 public class TimeArchiver {
 
-    public final String archivedTime;
+    public final LocalDateTime archivedTime;
 
     public TimeArchiver() {
-        System.out.println("[TimeArchiver#constructor] New instance!");
+        System.out.printf("[TimeArchiver#constructor] [identity=%s type=%s]%n", System.identityHashCode(this), this.getClass());
         var now = Instant.now();
-        var localDateTime = LocalDateTime.ofInstant(now, ZoneId.systemDefault());
-        archivedTime = HOUR_MINUTE_FORMATTER.format(localDateTime);
+        archivedTime = LocalDateTime.ofInstant(now, ZoneId.systemDefault());
+    }
+
+    @Override
+    public String toString() {
+        String archivedTimeReadable = HOUR_MINUTE_FORMATTER.format(archivedTime);
+        return "TimeArchive{archivedTime=%s} [identity=%s type=%s]%n".formatted(archivedTimeReadable, System.identityHashCode(this), this.getClass());
     }
 
     // This formats a time to just the hour and minute. For example, "09:59PM".
