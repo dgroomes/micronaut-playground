@@ -23,6 +23,15 @@ val brotliVersion = "1.6.0" // Brotli4j releases: https://github.com/hyperxpro/B
 val operatingSystem: OperatingSystem = DefaultNativePlatform.getCurrentOperatingSystem()
 
 dependencies {
+    // Micronaut projects like this one will print warnings during compilation like
+    //
+    //   warning: unknown enum constant When.MAYBE
+    //     reason: class file for javax.annotation.meta.When not found
+    //
+    // These warnings started with the release of Micronaut 3.0.0. To suppress the warnings you need to add a compile-only
+    // dependency on findbugs. See the note in the "Nullable Annotations" section under the "3.0.0" section under the
+    // "20.5 Breaking Changes" section in the Micronaut docs: https://docs.micronaut.io/latest/guide/#breaks
+    compileOnly("com.google.code.findbugs:jsr305")
     implementation("io.micronaut:micronaut-validation")
     implementation("io.micronaut:micronaut-runtime")
     implementation("io.micronaut:micronaut-http-client")
