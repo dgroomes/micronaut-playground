@@ -51,7 +51,7 @@ public class BeansApplication {
     private void lookAtTheTime(Provider<TimeArchiver> provider, String beanDescriptor) throws InterruptedException {
         System.out.printf("Looking up the time on a '%s' bean%n", beanDescriptor);
         for (int i = 0; i < 3; i++) {
-            var archivedTime = provider.get().archivedTime;
+            var archivedTime = provider.get();
             System.out.printf("[BeansApplication#run] Found archived time: %s%n", archivedTime);
             Thread.sleep(1_000);
         }
