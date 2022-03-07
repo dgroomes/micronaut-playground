@@ -8,6 +8,7 @@ repositories {
 }
 
 micronaut {
+    version("3.3.4") // Micronaut releases: https://github.com/micronaut-projects/micronaut-core/releases
     testRuntime("junit5")
     processing {
         incremental(true)
