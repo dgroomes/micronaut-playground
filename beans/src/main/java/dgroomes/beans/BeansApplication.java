@@ -65,12 +65,14 @@ public class BeansApplication {
         @Singleton
         @Named("timeArchiverSingleton")
         public TimeArchiver timeArchiverSingleton() {
+            System.out.println("[#timeArchiverSingleton]");
             return new TimeArchiver();
         }
 
         @Named("timeArchiverPrototype")
         @Prototype
         public TimeArchiver timeArchiverPrototype() {
+            System.out.println("[#timeArchiverPrototype]");
             return new TimeArchiver();
         }
 
@@ -78,6 +80,7 @@ public class BeansApplication {
         @Named("timeArchiverRefreshable")
         @Refreshable
         public TimeArchiver timeArchiverRefreshable() {
+            System.out.println("[#timeArchiverRefreshable]");
             return new TimeArchiver();
         }
     }
