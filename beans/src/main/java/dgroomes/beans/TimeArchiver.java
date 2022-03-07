@@ -19,7 +19,7 @@ public class TimeArchiver {
     public final LocalDateTime archivedTime;
 
     public TimeArchiver() {
-        System.out.println("[TimeArchiver#constructor] New instance!");
+        System.out.printf("[TimeArchiver#constructor] [identity=%s type=%s]%n", System.identityHashCode(this), this.getClass());
         var now = Instant.now();
         archivedTime = LocalDateTime.ofInstant(now, ZoneId.systemDefault());
     }
@@ -27,7 +27,7 @@ public class TimeArchiver {
     @Override
     public String toString() {
         String archivedTimeReadable = HOUR_MINUTE_FORMATTER.format(archivedTime);
-        return "TimeArchive{archivedTime=%s}".formatted(archivedTimeReadable);
+        return "TimeArchive{archivedTime=%s} [identity=%s type=%s]%n".formatted(archivedTimeReadable, System.identityHashCode(this), this.getClass());
     }
 
     // This formats a time to just the hour and minute. For example, "09:59PM".
