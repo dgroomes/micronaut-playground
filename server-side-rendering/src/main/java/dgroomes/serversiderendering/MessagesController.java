@@ -28,6 +28,7 @@ public class MessagesController {
     /**
      * @param repetitions Optional query parameter. When present, the message will be repeated this many times.
      */
+    @SuppressWarnings("unchecked")
     @Get
     public ModelAndView<Messages> messages(@Nullable @Parameter Integer repetitions) {
         if (repetitions == null) {
