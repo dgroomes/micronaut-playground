@@ -34,6 +34,4 @@ General clean-ups, TODOs and things I wish to implement for this project:
 * DONE Can I strip out most of the Micronaut framework-iness (micronaut-cli.yml, Gradle plugin) and just use Micronaut
   as a library (including its required annotation processing)? With this "beans" sub-project I want to focus on just
   that. All other cruft detracts from the illustration.
-* DONE (Unfortunately I can't do `Refreshable` easily because I would have to add `micronaut-runtime` and also
-  `ApplicationContext` instead of `BeanContext` which I'm not interested in doing). Compare and contrast beans with
-  different life-cycle scopes: Singleton (easy!), Prototype, and the RefreshableScope (bewildering).
+* DONE Compare and contrast beans with different life-cycle scopes: Singleton (easy!), Prototype, and the RefreshableScope (bewildering).
