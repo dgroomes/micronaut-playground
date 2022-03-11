@@ -1,28 +1,29 @@
 package dgroomes.config;
 
-import io.micronaut.context.ApplicationContext;
-import io.micronaut.context.env.Environment;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import io.micronaut.context.env.PropertySource;
+import io.micronaut.runtime.Micronaut;
+
+import java.util.Map;
 
 /**
- * A simple "hello world" Micronaut program
+ * This showcases configuration features of Micronaut like environments and externalized configuration.
  */
 public class ConfigApplication {
 
-    private static final Logger log = LoggerFactory.getLogger(ConfigApplication.class);
+    private static final Map<String, Object> HARDCODED_PROPERTIES = Map.of("app.message-4", "Hello from the 'HARDCODED_PROPERTIES'!");
 
     public static void main(String[] args) {
-        var builder = ApplicationContext.builder(ConfigApplication.class, Environment.CLI);
-        try (var ctx = builder.build()) {
+        Micronaut micronaut = Micronaut
+                .build((String) null)
+                .propertySources(PropertySource.of(HARDCODED_PROPERTIES));
+
+        try (var ctx = micronaut.build()) {
 
             System.setProperty("app.message-2", "Hello from a system property!");
 
             ctx.start();
 
-            log.info(ctx.getRequiredProperty("app.message-1", String.class));
-            log.info(ctx.getRequiredProperty("app.message-2", String.class));
-            log.info(ctx.getRequiredProperty("app.message-3", String.class));
+            ctx.getBean(MessageVisitor.class).visitMessages();
         }
     }
 }

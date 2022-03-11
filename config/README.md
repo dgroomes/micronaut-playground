@@ -17,7 +17,7 @@ Follow these instructions to build and run the program.
       that because `app.message-1` is not a legal environment variable name. Instead we use `app_message_1`. Micronaut
       is smart enough to realize that this name is a synonym for `app.message-1`. Use the following command:
     * `app_message_1="Hello from an environment variable!" ./gradlew run`
-    * Notice the output. The environment overrode another property source!
+    * Notice the output. The environment variable overrode the original value!
 * Try activating a Micronaut *environment*
   * `MICRONAUT_ENVIRONMENTS=happy ./gradlew run`
   * Notice the special message!
