@@ -31,7 +31,7 @@ go
 
 ## Reference
 
-* [Micronaut docs: "The Environmnent"](https://docs.micronaut.io/latest/guide/index.html#environments)
+* [Micronaut docs: "The Environment"](https://docs.micronaut.io/latest/guide/index.html#environments)
 * [Micronaut docs: "Externalized Configuration with PropertySources"](https://docs.micronaut.io/latest/guide/index.html#propertySource)
 
 ## Wish List
