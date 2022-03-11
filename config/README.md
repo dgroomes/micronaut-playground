@@ -19,6 +19,13 @@ Follow these instructions to build and run the program.
     * `app_message_1="Hello from an environment variable!" ./gradlew run`
     * Notice the output. The environment overrode another property source!
 
+Tip: to build and run the program in debug suspending mode, use this:
+
+```shell
+alias go="./gradlew :installDist && CONFIG_OPTS='-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:5005' build/install/config/bin/config"
+go
+```
+
 ## Referenced materials
 
 * [Micronaut docs: "Externalized Configuration with PropertySources"](https://docs.micronaut.io/2.3.0/guide/index.html#propertySource)

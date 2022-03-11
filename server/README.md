@@ -81,7 +81,7 @@ Follow these instructions to build and run the program.
 Tip: to build and run the program in debug suspending mode, use this:
 
 ```shell
-alias go="./gradlew :installDist && SERVER_OPTS='-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:5005' build/install/server/bin/server"`
+alias go="./gradlew :installDist && SERVER_OPTS='-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:5005' build/install/server/bin/server"
 go
 ```
    
