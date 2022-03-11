@@ -57,5 +57,5 @@ See the README in [sql/](sql/).
 General clean-ups, TODOs and things I wish to implement for this project:
 
 * DONE Add a server example. I want to showcase a "hello world" endpoint and do gzip compression.
-* Track the issue about the Gradle "run" task being cached starting in version 3.0.0 of the Micronaut Gradle plugin.
+* DONE Track the issue about the Gradle "run" task being cached starting in version 3.0.0 of the Micronaut Gradle plugin.
   * Update: see <https://github.com/micronaut-projects/micronaut-gradle-plugin/issues/385>
