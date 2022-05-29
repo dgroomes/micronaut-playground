@@ -7,17 +7,21 @@ An example Micronaut application that accesses a SQL database using *Micronaut D
 Follow these instructions to build and run the program.
 
 1. Start the Postgres database:
-    * `docker-compose up --detach --force-recreate --renew-anon-volumes`
+    * ```shell
+      docker-compose up --detach --force-recreate --renew-anon-volumes
+      ```
     * Why is this `up` command so complicated? The combination of `--force-recreate` and `--renew-anon-volumes` has the 
       effect of starting the Postgres database from a clean slate. This is convenient for quick development. You can use
       a shortened version like `docker-compose up -d --force-recreate -V` but that's still long. Consider creating a shell
       alias like `alias dcuf="docker-compose up --detach --force-recreate --renew-anon-volumes"`.
 1. Use Java 17
 1. Build and run the app:
-    * `./gradlew run`
+    * ```shell
+      ./gradlew run
+      ```
     * Observe program output. It reads from and writes to the Postgres database!
     * The output should look something like this:
-      ```
+      ```text
       21:46:26.285 [main] INFO  dgroomes.sql.SqlApplication - Creating some observations and inserting them into the 'observations' table...
       
       21:46:26.436 [main] INFO  dgroomes.sql.SqlApplication - Listing all of the observations in the 'observations' table...
@@ -49,7 +53,16 @@ Follow these instructions to build and run the program.
       SQL         1
       ```
 1. Stop the database:
-    * `docker-compose down`
+    * ```shell
+      docker-compose down
+      ```
+
+Tip: to build and run the program in debug suspending mode, use this:
+
+```shell
+alias go="./gradlew :installDist && SQL_OPTS='-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:5005' build/install/sql/bin/sql"
+go
+```
 
 ## Reference
 
