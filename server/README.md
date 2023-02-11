@@ -104,6 +104,40 @@ Follow these instructions to build and run the program.
      ```
    * The reason is the configuration of the "content size threshold" given to `io.netty.handler.codec.http.HttpContentCompressor`.
      We don't want to bother compressing small payloads. The compute overhead is not worth it.
+9. Try running a Micronaut-based client instead of `curl`:
+   * ```shell
+     ./gradlew :client:run
+     ```
+   * The output will look something like this:
+     ```text
+     13:21:03 [main] INFO  i.m.context.env.DefaultEnvironment - Established active environments: [cli]
+     13:21:03 [main] INFO  dgroomes.client.ClientProgram - Sending a request to the server...
+     13:21:03 [main] INFO  dgroomes.client.ClientProgram - Got a response. Content length: 47
+     13:21:03 [main] INFO  dgroomes.client.ClientProgram - Sending a request with 'repetitions' equal to 10,000 ...
+     13:21:03 [main] INFO  dgroomes.client.ClientProgram - Got a response. Content length: 538,917
+     13:21:03 [main] INFO  dgroomes.client.ClientProgram - Sending a request with 'repetitions' equal to 1,000,000 ...
+     13:21:04 [main] INFO  dgroomes.client.ClientProgram - Got a response. Content length: 55,888,919
+     13:21:04 [main] INFO  dgroomes.client.ClientProgram - Sending a request with 'repetitions' equal to 2,000,000. This should fail because the size of the response is larger than 'micronaut.http.client.max-content-length' configuration ...
+     Exception in thread "main" io.micronaut.http.client.exceptions.ContentLengthExceededException: The received length exceeds the maximum allowed content length [104857600]
+             at io.micronaut.http.client.netty.DefaultHttpClient$11.exceptionCaught(DefaultHttpClient.java:2608)
+             ... snip ...
+             at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+             at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:986)
+             at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+             at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+             at java.base/java.lang.Thread.run(Thread.java:833)
+             Suppressed: java.lang.Exception: #block terminated with an error
+                     at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:99)
+                     at reactor.core.publisher.Flux.blockFirst(Flux.java:2600)
+                     at io.micronaut.http.client.netty.DefaultHttpClient$3.exchange(DefaultHttpClient.java:612)
+                     at io.micronaut.http.client.BlockingHttpClient.exchange(BlockingHttpClient.java:77)
+                     at io.micronaut.http.client.BlockingHttpClient.exchange(BlockingHttpClient.java:106)
+                     at dgroomes.client.ClientProgram.run(ClientProgram.java:63)
+                     at dgroomes.client.ClientMain.main(ClientMain.java:15)
+     ```
+   * The moral of the story is that you, as a programmer, need to think about the size of the response data and how it
+     effects the behavior of the server (e.g. compression) and how it effects the behavior of the client (e.g. too much
+     data causes a failure)
 
 Tip: to build and run the program in debug suspending mode, use this:
 
