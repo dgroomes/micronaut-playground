@@ -31,9 +31,3 @@ dependencies {
 application {
     mainClass.set("dgroomes.sql.SqlApplication")
 }
-
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
-    }
-}
