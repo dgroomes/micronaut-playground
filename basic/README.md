@@ -31,7 +31,7 @@ Follow these instructions to build and run the program.
      ./build/install/basic/bin/basic
      ``` 
    * The output should look like this:
-     ```shell
+     ```text
      $ ./build/install/basic/bin/basic
      00:05:16.725 [main] INFO  i.m.context.env.DefaultEnvironment - Established active environments: [cli]
      00:05:16.804 [main] INFO  d.basic.BasicApplication$MyFactory - Hello world!

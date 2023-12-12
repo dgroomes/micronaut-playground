@@ -37,9 +37,3 @@ dependencies {
 application {
     mainClass.set("dgroomes.serversiderendering.ServerSideRenderingApplication")
 }
-
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
-    }
-}
