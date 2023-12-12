@@ -2,7 +2,7 @@ import org.gradle.nativeplatform.platform.internal.DefaultNativePlatform
 
 plugins {
     // Micronaut Gradle plugin releases: https://github.com/micronaut-projects/micronaut-gradle-plugin/releases
-    id("io.micronaut.application") version "3.2.2"
+    id("io.micronaut.application") version "4.2.1"
 }
 
 repositories {
@@ -10,7 +10,7 @@ repositories {
 }
 
 micronaut {
-    version("3.3.4") // Micronaut releases: https://github.com/micronaut-projects/micronaut-core/releases
+    version("4.2.1") // Micronaut releases: https://github.com/micronaut-projects/micronaut-core/releases
     testRuntime("junit5")
     processing {
         incremental(true)
@@ -18,26 +18,18 @@ micronaut {
     }
 }
 
-val zstdJniVersion = "1.5.2-1" // zstd-jni releases: https://github.com/luben/zstd-jni/tags
-val brotliVersion = "1.6.0" // Brotli4j releases: https://github.com/hyperxpro/Brotli4j/releases
+val zstdJniVersion = "1.5.5-11" // zstd-jni releases: https://github.com/luben/zstd-jni/tags
+val brotliVersion = "1.13.0" // Brotli4j releases: https://github.com/hyperxpro/Brotli4j/releases
 val operatingSystem: OperatingSystem = DefaultNativePlatform.getCurrentOperatingSystem()
 
 dependencies {
-    // Micronaut projects like this one will print warnings during compilation like
-    //
-    //   warning: unknown enum constant When.MAYBE
-    //     reason: class file for javax.annotation.meta.When not found
-    //
-    // These warnings started with the release of Micronaut 3.0.0. To suppress the warnings you need to add a compile-only
-    // dependency on findbugs. See the note in the "Nullable Annotations" section under the "3.0.0" section under the
-    // "20.5 Breaking Changes" section in the Micronaut docs: https://docs.micronaut.io/latest/guide/#breaks
-    compileOnly("com.google.code.findbugs:jsr305")
-    implementation("io.micronaut:micronaut-validation")
     implementation("io.micronaut:micronaut-runtime")
     implementation("io.micronaut:micronaut-http-client")
     implementation("io.micronaut:micronaut-http-server-netty")
+    implementation("io.micronaut:micronaut-jackson-databind")
     implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-csv")
     runtimeOnly("ch.qos.logback:logback-classic")
+    runtimeOnly("org.yaml:snakeyaml")
 
     // Netty does detection at bootstrap-time for the presence of these Zstandard and Brotli Java libraries. If they are
     // present, then they will be supported as compression options.
