@@ -4,7 +4,7 @@ services:
 
   postgres:
     # https://hub.docker.com/_/postgres
-    image: postgres:13
+    image: postgres:16
     environment:
       # See PostgreSQL documentation about "trust":
       # https://www.postgresql.org/docs/current/auth-trust.html

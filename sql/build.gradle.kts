@@ -1,6 +1,6 @@
 plugins {
     // Micronaut Gradle plugin releases: https://github.com/micronaut-projects/micronaut-gradle-plugin/releases
-    id("io.micronaut.application") version "3.2.2"
+    id("io.micronaut.application") version "4.2.1"
 }
 
 repositories {
@@ -8,7 +8,7 @@ repositories {
 }
 
 micronaut {
-    version("3.3.4") // Micronaut releases: https://github.com/micronaut-projects/micronaut-core/releases
+    version("4.2.1") // Micronaut releases: https://github.com/micronaut-projects/micronaut-core/releases
     testRuntime("junit5")
     processing {
         incremental(true)
@@ -20,6 +20,7 @@ dependencies {
     // Micronaut core stuff
     implementation("io.micronaut:micronaut-runtime")
     runtimeOnly("ch.qos.logback:logback-classic")
+    runtimeOnly("org.yaml:snakeyaml")
 
     // Micronaut Data and Micronaut JDBC stuff
     annotationProcessor("io.micronaut.data:micronaut-data-processor")

@@ -2,7 +2,7 @@ package dgroomes.sql;
 
 import io.micronaut.context.ApplicationContext;
 import io.micronaut.context.env.Environment;
-import io.micronaut.transaction.jdbc.DelegatingDataSource;
+import io.micronaut.data.connection.jdbc.advice.DelegatingDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
