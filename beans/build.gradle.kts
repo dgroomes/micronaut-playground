@@ -20,9 +20,3 @@ dependencies {
 application {
     mainClass.set("dgroomes.beans.BeansApplication")
 }
-
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
-    }
-}
