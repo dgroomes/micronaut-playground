@@ -7,7 +7,7 @@ A "Hello World" Micronaut HTTP web server application that also showcases compre
 
 Follow these instructions to build and run the program.
 
-1. Use Java 17
+1. Use Java 21
 2. Build and start the web app:
    * ```shell
      ./gradlew run

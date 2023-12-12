@@ -35,9 +35,3 @@ dependencies {
 application {
     mainClass.set("dgroomes.client.ClientMain")
 }
-
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
-    }
-}

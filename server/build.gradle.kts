@@ -50,12 +50,6 @@ application {
     mainClass.set("dgroomes.server.BasicApplication")
 }
 
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
-    }
-}
-
 /**
  * @return the name of the platform-specific Brotli artifact. For example, "native-osx-x86_64", "native-windows-x86_64"
  */
