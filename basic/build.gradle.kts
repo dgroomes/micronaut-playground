@@ -29,8 +29,3 @@ application {
     mainClass.set("dgroomes.basic.BasicApplication")
 }
 
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
-    }
-}
